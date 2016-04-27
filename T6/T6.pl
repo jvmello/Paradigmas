@@ -9,7 +9,7 @@ hasN([], 0).
 hasN(L, N) :- length(L, X), X =:= N.
 
 %4)
-potN0(-1, []).
+potN0(-1, []) :- !.
 potN0(N, L) :- X is 2^N, L = [X | T], Y is N-1, potN0(Y, T).
 
 %5)
@@ -22,7 +22,7 @@ potencias(0, []).
 potencias(A, L) :- aux6(0, L, A).
 
 aux6(_, [], 0).
-aux6(X, [H | T], A):- X1 is 2^X, X2 is X+1, B is A-1, A > -1, aux6(X2, T, B).
+aux6(X, L, A) :- H is 2^X, L = [H | T], Y is X+1, Z is A-1, A > -1, aux6(Y, T, Z).
 
 %7)
 positivos([], []).
@@ -41,4 +41,4 @@ comissao(N, [_ | T1], T2) :- N > 0, comissao(N, T1, T2).
 
 %10)
 azulejos(0, 0) :- !.
-azulejos(NA, NP) :- floor(sqrt(NA), X), resto is NA - X^2, azulejos(resto, cont), NP is cont+1.
+azulejos(NA, NP) :- floor(sqrt(NA), X), R is NA - X^2, azulejos(R, Q), NP is Q+1.
