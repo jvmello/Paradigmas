@@ -1,9 +1,7 @@
 package bolacha;
 
-import java.util.*;
-
 public class Bolacha{
-    private double area;
+    double area;
     Ponto p;
     
     public void Bolacha(){
@@ -28,46 +26,5 @@ public class Bolacha{
     
     static double getY(Bolacha b){
         return b.p.y;
-    }
-    
-    public static void main(String[] args){
-        double xmaior = 0;
-        double ymaior = 0;
-        double areamaior = 0;
-        int i;
-        Bolacha maior = new Bolacha();
-        maior.area = 0;
-        maior.p.x = 0;
-        maior.p.y = 0;
-        ArrayList<Bolacha> bolachas = new ArrayList();
-        Random gerador = new Random();
-        
-        for(i = 0; i < 50; i++){
-            switch(gerador.nextInt(3)){
-               case 0:
-                    Retangulo r = new Retangulo(gerador.nextDouble() * 10, gerador.nextDouble() * 10);
-                    bolachas.add(r);
-                break;
-            
-                case 1:
-                    Circulo c = new Circulo(gerador.nextDouble() * 10);
-                    bolachas.add(c);
-                break;
-            
-                case 2:
-                    Triangulo t = new Triangulo(gerador.nextDouble() * 10, gerador.nextDouble() * 10);
-                    bolachas.add(t);
-                break;
-            }
-            if(areamaior < getArea(bolachas.get(i))){
-                areamaior = getArea(bolachas.get(i));
-                xmaior = getX(bolachas.get(i));
-                ymaior = getY(bolachas.get(i));
-                //System.out.println("Maior X: "+ getX(maior) +" Y: "+ getY(maior) + " Area: " + getArea(maior));
-            }
-            System.out.println("Ok "+ getX(bolachas.get(i)) + " " + getY(bolachas.get(i)) + ": " + getArea(bolachas.get(i)));
-            
-        }
-        System.out.println("Maior X: "+ xmaior +" Y: "+ ymaior + " Area: " + areamaior);
-    }
+    }   
 }
